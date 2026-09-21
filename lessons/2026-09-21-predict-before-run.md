@@ -67,3 +67,54 @@ value, variable, list, append, output, index, len, `list(a)` — all in `state/g
 More `predict-before-run` reps on unseen code, then: what an LLM call really is → types as design → routing as a decision function → eval harness → failure handling.
 
 Rule agreed: AI may explain anything, but may not produce the artifact.
+
+---
+
+# Same session, part two — functions
+
+Motivated by the router directly: *given this task, which model gets it?* is one question asked a thousand times with different inputs. That is what a function is for. Everything in Track 1 will be functions calling each other.
+
+## What happened
+
+Same asymmetry as part one, moved into functions:
+
+```python
+def add_item(items):
+    items.append(99)
+
+def add_number(n):
+    n = n + 1
+```
+
+He predicted `[1, 2, 99]` and `6`. The real output was `[1, 2, 99]` and **5**.
+
+**This is the important finding of the session.** He had produced `name-vs-object` unaided twice an hour earlier, cleanly, including a deliberately-broken variant. It did not survive being moved into a function. So top-level fluency was not the same thing as holding the idea — I marked it `solid` too early and have downgraded it to `landed`.
+
+When shown the conflict he reached for an invented explanation: *"we just printed count rather than calling the function; print(count) pulled the variable."* Nothing on the page supports that. It was killed cheaply by applying his own rule to the line he got right — by that rule `print(original)` should also have shown `[1, 2]`, and it didn't. His rule could not tell the two cases apart, so it wasn't the rule.
+
+That is the third instance in one session of the same move: gap appears, gets filled with something plausible, page never checked. Named for him each time, in the act.
+
+## The node that came out of it
+
+- `.append()` / `.clear()` **reach through the name** and change the thing itself. Everyone pointing at that thing sees it.
+- `=` **never touches the thing.** It points the name somewhere else.
+- A function gets its **own private names**. Moving a private name changes nothing outside. Changing a shared object is visible to everyone holding it.
+
+He got there himself on the key observation — *"there was no duplication of the list"* — but merged two events into one, saying `items` no longer pointed at the same list. The contents changed; the pointing did not. Sharpened with a memory diagram.
+
+## Check, fresh clothes
+
+```python
+def wipe(items):  items = []
+def empty(items): items.clear()
+```
+
+`[1, 2]` and `[]`. Both correct — but he answered `b` confidently and hedged on `a` until pointed back at the rule he had just read. Pattern confirmed: **he hedges when the answer needs a rule applied, not when it needs a fact recalled.** His final wording — "there was no operation" — was corrected: the operation was real, it just landed on the name.
+
+## Vocabulary added (5 more, 13 total)
+
+function, `def`, argument, call, `.clear()`. `return` deliberately not introduced yet.
+
+## Next session
+
+Re-test `name-vs-object` and `mutate-vs-rebind` cold, in a deep session — not a drill, since neither is solid. Then `return`, then what an LLM call really is.

@@ -10,5 +10,8 @@ Scheduling: correct → double the interval (1 → 2 → 4 → 8 → 16 → 32, 
 
 - 2026-09-22 | proxy-signal | 1 | 0
 - 2026-09-22 | chain-of-support | 1 | 0
-- 2026-09-22 | name-vs-object | 1 | 0
 - 2026-09-22 | len-vs-index | 1 | 0
+
+## Not queued yet — need producing unaided first
+
+`name-vs-object` and `mutate-vs-rebind` are both `landed`, not solid. Re-test them at the start of the next deep session, not in a drill.
