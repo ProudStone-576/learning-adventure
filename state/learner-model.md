@@ -59,6 +59,11 @@ Where we stopped — step 1 of predict → conflict → resolve:
 - **Next move on resume:** get him to commit to that number (190,000), then reveal the truth is 97,000 — a miss of 93,000, nearly double. Do not explain the gap. Ask him what has to give: the line was *exactly right* at 0 and 10 years and still catastrophically wrong at 30, so "not enough data" has nowhere left to stand. Let him state the resolution himself.
 - Then rebuild: capacity is fixed before training; data searches inside the ceiling, it does not raise it. Re-check with a third set of clothes.
 
+## Resume words
+
+- **"begon"** — resume Track 1 where 2026-09-21 left off: re-test `name-vs-object` and `mutate-vs-rebind` cold, then `return`, then what an LLM call really is.
+- **"Stonewall"** — resume the paused Track 2 dislodge, mid-step. See the PAUSED section.
+
 ## Next session
 
 **Track 1 is now the primary lane** (his call, 2026-09-21 — he wants hireable capability and a router framework he built himself). Track 2 (ML) continues at low burn via `drill`, not as a project.
