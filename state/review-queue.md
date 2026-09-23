@@ -8,10 +8,12 @@ Scheduling: correct → double the interval (1 → 2 → 4 → 8 → 16 → 32, 
 
 ## Due
 
-- 2026-09-22 | proxy-signal | 1 | 0
-- 2026-09-22 | chain-of-support | 1 | 0
-- 2026-09-22 | len-vs-index | 1 | 0
+- 2026-09-24 | proxy-signal | 1 | 0
+- 2026-09-24 | len-vs-index | 1 | 0
+- 2026-09-24 | name-vs-object | 1 | 1
+- 2026-09-24 | mutate-vs-rebind | 1 | 1
+- 2026-09-25 | chain-of-support | 2 | 1
 
-## Not queued yet — need producing unaided first
+## Not queued — still `edge`
 
-`name-vs-object` and `mutate-vs-rebind` are both `landed`, not solid. Re-test them at the start of the next deep session, not in a drill.
+`return` was missed twice and its final check was never answered. Re-pose that check cold at the start of the next deep session, before any new material.
